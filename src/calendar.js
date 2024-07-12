@@ -10,6 +10,14 @@ const Title = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
 
+  const CalendarContainer = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
+
 function Calendar(){
     const calendarContent =[
         "Sunday",
@@ -56,7 +64,7 @@ function Calendar(){
         " "
     ]
     return (
-        <div>
+        <CalendarContainer>
             <Grid container={true} columns={1}>
                 <Grid xs={12} sm={12} md={12} lg={12}>
                     <Title elevation={0}>
@@ -73,7 +81,7 @@ function Calendar(){
                 }
 
             </Grid>
-        </div>
+        </CalendarContainer>
     )
 }
 
