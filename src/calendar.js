@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
 
 const Title = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -11,11 +12,26 @@ const Title = styled(Paper)(({ theme }) => ({
   }));
 
   const CalendarContainer = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1Agfdm' : '#fff',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
+  }));
+
+  const DemoPaper = styled(Paper)(({ theme }) => ({
+    width: 30,
+    height: 0,
+    padding: theme.spacing(2.5),
+    ...theme.typography.body2,
+    textAlign: 'left-top' ,
+  }));
+  const DemoPapers = styled(Paper)(({ theme }) => ({
+    width: 20,
+    height: 0,
+    padding: theme.spacing(2.5),
+    ...theme.typography.caption,
+    textAlign: 'center' ,
   }));
 
 function Calendar(){
@@ -74,13 +90,20 @@ function Calendar(){
             </Grid>
             <Grid container spacing={2} columns={7}>
                 {
-                    //calendarContent
-                    calendarContent.map((item) => (
-                        <Grid xs={1} sm={1} md={1} lg={1}><p>{item}</p></Grid>
-                    ))
-                }
+                    calendarContent.slice(0, 7).map((item, index) => (
+                        <Grid key={index} xs={1} sm={1} md={1} lg={1}>
+                            <DemoPapers elevation= {0}>{item}</DemoPapers>
+                        </Grid>
+                    ))}
+                    {calendarContent.slice(7).map((item,index) => (
+                        <Grid key = {index} xs={1} sm={1} md={1} lg={1}>
+                            <DemoPaper variant = "outlined">{item}</DemoPaper></Grid>
+                    
+                    ))}
+                    
+                
 
-            </Grid>
+             </Grid>
         </CalendarContainer>
     )
 }
