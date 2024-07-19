@@ -23,24 +23,28 @@ const Title = styled(Paper)(({ theme }) => ({
   }));
 
   const DemoPaper = styled(Paper)(({ theme }) => ({
-    width: 30,
+    width: '100%',
     height:0,
     padding: theme.spacing(2.5),
     fontSize:15,
     textAlign: 'center' ,
   }));
   const DemoPapers = styled(Paper)(({ theme }) => ({
-    width: 20,
-    height:0,
+    width:'100%',
+    height:'100%',
     padding: theme.spacing(2),
     fontSize:15,
     textAlign: "center",
     display: 'flex',
+    justifyContent:'center',
   }));
   const GridCell = styled(Grid)(()=>({
-    textAlign: 'center',
-    margin:'auto',
-  }))
+    padding:'0 !important',
+  }));
+  const CalendarGrid = styled(Grid)(()=>({
+    margin:'0 !important',
+    width:'100% !important',
+  }));
 
 function Calendar(){
     const calendarContent =[
@@ -90,27 +94,28 @@ function Calendar(){
     return (
         <CalendarContainer>
             <Grid container={true} columns={1}>
-                <Grid container={true} columns={1}>
-                    <Grid xs={12} sm={12} md={12} lg={12}>
-                        <Title elevation={0}>
-                            Calendar
-                        </Title>
-                    </Grid>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                    <Title elevation={0}>
+                        Calendar
+                    </Title>
                 </Grid>
-                <Grid container spacing={2} columns={7}>
-                    {
-                        calendarContent.slice(0, 7).map((item, index) => (
-                            <GridCell key={index} xs={1} sm={1} md={1} lg={1} item alignItems='center' >
-                                <DemoPapers elevation= {0}>{item}</DemoPapers>
-                            </GridCell>
-                        ))}
-                        {calendarContent.slice(7).map((item,index) => (
-                            <GridCell key = {index} xs={1} sm={1} md={1} lg={1} item alignItems='center'>
-                                <DemoPaper variant = "outlined">{item}</DemoPaper></GridCell>
-                        
-                        ))}
-                </Grid>
-            </Grid>
+                <Grid item xs={12} sm={12} md={12} lg={12}>
+                    <div>
+                        <CalendarGrid container spacing={2} columns={7}>
+                            {calendarContent.slice(0, 7).map((item, index) => (
+                                <GridCell key={index} xs={1} sm={1} md={1} lg={1} item alignItems='center' >
+                                    <DemoPapers elevation= {0}>{item}</DemoPapers>
+                                </GridCell>
+                            ))}
+                            {calendarContent.slice(7).map((item,index) => (
+                                <GridCell key = {index} xs={1} sm={1} md={1} lg={1} item alignItems='center'>
+                                    <DemoPaper  square variant = "outlined">{item}</DemoPaper>
+                                </GridCell>  
+                            ))}
+                        </CalendarGrid>  
+                    </div>
+                </Grid>       
+            </Grid>  
         </CalendarContainer>
     )
 }
