@@ -1,0 +1,128 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+  
+body { 
+    font-family: epilogue, sans-serif; 
+    font-size: 10px;
+    background-color: #ffffff; 
+    margin: 0; 
+    padding: 0; 
+    color: #333; 
+} 
+  
+header { 
+    background-color: #e0f7ab; 
+    color: #ffffff; 
+    text-align: center; 
+    padding: 1rem 0; 
+    box-shadow: 0 1px 10px rgb(118, 118, 117); 
+    border-radius: 10px;
+    font-family: epilogue, sans-serif;
+} 
+  
+main { 
+    max-width: 800px; 
+    margin: 20px auto; 
+    padding: 40px; 
+    background-color: #fff; 
+    box-shadow: 0 4px 18px grey; 
+    border-radius: 15px; 
+} 
+  
+.task-form { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 10px; 
+    margin-bottom: 20px; 
+    font-family: epilogue, sans-serif;
+} 
+  
+.task-form input, 
+.task-form select, 
+.task-form button { 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    font-size: 15px; 
+    font-family: epilogue, sans-serif;
+    flex: 1; 
+    border-radius: 10px; 
+} 
+  
+button { 
+    background-color: #e0f7ab; 
+    color: rgb(0, 0, 0); 
+    border: none; 
+    cursor: pointer; 
+} 
+  
+.mark-done { 
+    padding: 8px; 
+    font-size: 12px; 
+    flex: 1; 
+    border-radius: 10px; 
+    background-color: #e27396; 
+    color: white; 
+    border: none; 
+    cursor: pointer; 
+    font-family: epilogue, sans-serif;
+} 
+  
+.task-list { 
+    border: 1px solid #ddd; 
+    padding: 10px; 
+} 
+  
+table { 
+    width: 100%; 
+    margin-top: 2px; 
+    background-color: #fff; 
+    border: 1px solid #ddd; 
+    padding: 5px;
+    padding-bottom: 20px;
+    font-family: epilogue, sans-serif;
+
+} 
+  
+table th, 
+table td { 
+    padding: 0px; 
+    border-bottom: 1px solid #b8b5b5; 
+    text-align: left; 
+} 
+  
+table th { 
+    background-color: #eee; 
+    color: rgb(1, 1, 1); 
+    border-radius: 10px; 
+} 
+  
+.completed-task-list { 
+    margin-top: 20px; 
+} 
+  
+.completed-task { 
+    padding: 10px; 
+    border: 1px solid crimson; 
+    border-radius: 5px; 
+    background-color: #eaffea; 
+} 
+  
+.completed-task h2 { 
+    color: #28a745; 
+} 
+  
+h2 { 
+    font-size: 1rem; 
+    font-family: epilogue, sans-serif;
+} 
+  
+.heading { 
+    padding-bottom: 15px; 
+} 
+  
+.cheading { 
+    color: rgb(54, 54, 54); 
+}

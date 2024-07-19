@@ -6,50 +6,65 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import Calendar from './calendar.js'
-import Note from './stickynotes.js'
+import AddNote from './stickynotes.js'
 import NoteList from './notesList.js'
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+import Check from './checklist.js'
+import "./Check.css";
 
 const Title = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#F5eee7',
-  ...theme.typography.h3,
+  backgroundColor: '#ea9ab2',
+  fontSize: 80,
+  fontWeight:700,
   padding: theme.spacing(1),
   textAlign: 'center',
-  color: theme.palette.text.secondary,
+  marginBottom: 15,
+  color: 'white',
 }));
 
+const Stickynotes = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#d7a4f9',
+  fontSize:20,
+  fontWeight:700,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  color: "white",
+}));
 
 
 function App() {
-  const [notes, setNotes] = useState(['fruits, pick up keys']);
+  const [notes, setNotes] = useState(['password: 123abc', 'dont forget to breath']);
 
+  const addStrToArray = (str) =>{
+    const copyOfNotes = Array.from(notes);
+    copyOfNotes.push(str);
+    setNotes(copyOfNotes);
+  }
   return (
     <div>
      <Box sx={{ flexGrow: 1 }}>
       <Grid container = {true} columns = {1}>
-        <Grid xs={12} sm={12} md={12} lg={12}>
-          <Title elevation={0}>
+        <Grid xs={12} sm={12} md={12} lg={10}>
+          <Title elevation={1}>
             Planner
           </Title>
         </Grid>
       </Grid>
       <Grid container spacing={3}>
         <Grid xs>
-          <Note/>
-          <NoteList/>
+        <theme>
+          <Stickynotes elevation={9}>Sticky Notes</Stickynotes>
+          <AddNote
+          addNote={ addStrToArray }/>
+          <NoteList
+          notes={ notes }
+          />
+          </theme>
         </Grid>
-        <Grid xs={7}>
+        <Grid xs={6}>
           <Calendar />
         </Grid>
         <Grid xs>
-          <Item>to do list</Item>
+          <Check/>
         </Grid>
       </Grid>
     </Box> 
